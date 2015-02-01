@@ -4,7 +4,8 @@
   "description": "Koa simple voting site",
   "main": "app.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --harmony-generators -u bdd -R spec"
+    "test": "./node_modules/mocha/bin/mocha --harmony-generators -u bdd -R spec",
+    "start": "node --harmony app.js"
   },
   "author": "Stas K.",
   "license": "ISC",
