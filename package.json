@@ -16,12 +16,13 @@
     "supertest": "^0.15.0"
   },
   "dependencies": {
+    "co-body": "^1.0.0",
+    "co-monk": "^0.9.1",
     "co-views": "^0.2.0",
     "koa": "^0.16.0",
     "koa-route": "^2.4.0",
     "koa-static": "^1.4.8",
-    "swig": "^1.4.2",
     "monk": "^1.0.0",
-    "co-monk": "^0.9.1"
+    "swig": "^1.4.2"
   }
 }

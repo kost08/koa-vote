@@ -10,6 +10,7 @@ var homeRoutes = require("./routes/homeRoutes.js");
 app.use(route.get("/", homeRoutes.showHome));
 var questionRoutes = require("./routes/questionRoutes");
 app.use(route.get("/question", questionRoutes.showNewQuestion));
+app.use(route.post("/question", questionRoutes.addQuestion));
 
 //Start app
 app.listen(process.env.PORT, process.env.IP);
