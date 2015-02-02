@@ -1,7 +1,19 @@
 var app = require("../app.js");
 var request = require("supertest").agent(app.listen());
+var testHelpers = require("./testHelpers")
 
 describe("Add questions", function(){
+    
+    beforeEach(function(done){
+        testHelpers.removeAllDocs();
+        done();
+    });
+    
+    afterEach(function(done){
+        testHelpers.removeAllDocs();
+        done();
+    });
+    
     a_question_form = {
         questionTitle: "A question?",
         tagString: "tag1, tag2, tag3"
