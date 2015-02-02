@@ -8,6 +8,8 @@ app.use(serve(__dirname + "/public"));
 //routes
 var homeRoutes = require("./routes/homeRoutes.js");
 app.use(route.get("/", homeRoutes.showHome));
+var questionRoutes = require("./routes/questionRoutes");
+app.use(route.get("/question", questionRoutes.showNewQuestion));
 
 //Start app
 app.listen(process.env.PORT, process.env.IP);
