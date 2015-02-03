@@ -58,12 +58,12 @@ module.exports.showAddComment = function *(id){
 }
 
 module.exports.addComment = function *(id){
-    var postedData = yield parse(this);
-    
-    var vote = yield db.votes.findAndModify(
-        {_id: id},
-        {$set: {comment: postedData.comment}}
-        );
-        
-    this.redirect('/vote?questionId='+vote.questionId);
-}
+	var postedData = yield parse(this);
+
+	var vote = yield db.votes.findAndModify(
+			{ _id : id },
+			{ $set: { comment : postedData.comment }}
+	);
+
+	this.redirect('/vote?questionId=' + vote.questionId);
+};
