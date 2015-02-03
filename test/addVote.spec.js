@@ -56,5 +56,23 @@ describe("adding votes", function(){
 		questionId : 000000000000000000000000,
 		voteValue: 4
 	};
-
+    
+    it("should add vote and redirect to comment page", function(done) {
+        request
+            .post("/vote")
+            .send(test_vote_form)
+            .expect("location", /^\/vote\/[0-9a-fA-F]{24}\/comment$/)
+            .expect(302, done);
+    });
+    
+    it("should require a question reference", function(done){
+        delete test_vote_form.questionId;
+        
+        request
+            .post("/vote")
+            .send(test_vote_form)
+            .expect("location", "/")
+            .expect("ErrorMessage", "questionId required")
+            .expect(302, done);
+    })
 });

@@ -4,5 +4,6 @@ var co = require("co")
 module.exports.removeAllDocs = function (){
     co(function *(){
         yield db.questions.remove({});
-    })
+        yield db.votes.remove({});
+    });
 }
