@@ -18,6 +18,8 @@ app.use(route.post("/question/:id", questionRoutes.updateQuestion));
 var voteRoutes = require("./routes/voteRoutes.js");
 app.use(route.get("/vote", voteRoutes.showAddVote));
 app.use(route.post("/vote", voteRoutes.addVote));
+app.use(route.get("/vote/:id/comment", voteRoutes.showAddComment));
+app.use(route.post("/vote/:id/comment", voteRoutes.addComment));
 
 //Start app
 app.listen(process.env.PORT, process.env.IP);

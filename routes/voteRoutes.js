@@ -1,7 +1,7 @@
 var render = require("./../lib/render.js");
 var parse = require("co-body");
 var db = require("./../lib/db.js");
-var utils = require("./../lib/utils.js")
+var utils = require("./../lib/utils.js");
 
 module.exports.showAddVote = function *(){
     var questionId = this.query.questionId;
@@ -50,4 +50,20 @@ module.exports.addVote = function *(){
     //Store it
     var v = yield db.votes.insert(vote);
     this.redirect("/vote/" + v._id + "/comment");
+}
+
+module.exports.showAddComment = function *(id){
+    var vote = yield db.votes.findById(id);
+    this.body = yield render('comment', {voteId: id});
+}
+
+module.exports.addComment = function *(id){
+    var postedData = yield parse(this);
+    
+    var vote = yield db.votes.findAndModify(
+        {_id: id},
+        {$set: {comment: postedData.comment}}
+        );
+        
+    this.redirect('/vote?questionId='+vote.questionId);
 }
