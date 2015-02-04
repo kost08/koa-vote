@@ -23,6 +23,7 @@ app.use(route.post("/vote/:id/comment", voteRoutes.addComment));
 
 var resultRoutes = require("./routes/resultRoutes.js");
 app.use(route.get("/results", resultRoutes.showResultPage));
+app.use(route.post("/results", resultRoutes.renderResultsFile));
 
 //Start app
 app.listen(process.env.PORT, process.env.IP);
