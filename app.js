@@ -21,6 +21,9 @@ app.use(route.post("/vote", voteRoutes.addVote));
 app.use(route.get("/vote/:id/comment", voteRoutes.showAddComment));
 app.use(route.post("/vote/:id/comment", voteRoutes.addComment));
 
+var resultRoutes = require("./routes/resultRoutes.js");
+app.use(route.get("/results", resultRoutes.showResultPage));
+
 //Start app
 app.listen(process.env.PORT, process.env.IP);
 console.log("Server is rinning on port: " + process.env.PORT);

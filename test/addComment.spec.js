@@ -36,7 +36,7 @@ describe("Adding comments", function(){
 	it("should add a comment to an existing vote", function(done){
 	    co(function *() {
 	        var vote = yield db.votes.insert(a_test_vote);
-	        
+			vote;
 	        request
 	            .post("/vote/"+ vote._id +"/comment")
 	            .send({comment: "A nice little comment"})
